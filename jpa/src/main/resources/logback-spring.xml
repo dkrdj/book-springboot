@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_PATH" value="./logs"/>
+
+    <!-- Appenders -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <Pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <!--    <appender name="INFO_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <level>INFO</level>
+            </filter> &lt;!&ndash; 레벨별 필터링이 필요없을 경우 filter class 관련된 부분을 삭제하면 됨&ndash;&gt;
+            <file>${LOG_PATH}/info.log</file> &lt;!&ndash; 파일을 저장할 경로를 정한다 &ndash;&gt;
+            <append>true</append>
+
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_PATH}/info_${type}.%d{yyyy-mm-dd}.gz
+                </fileNamePattern> &lt;!&ndash; 해당 패턴 네이밍으로 이전 파일이 기록됨 &ndash;&gt;
+                <maxHistory>30</maxHistory> &lt;!&ndash; 한 파일의 최대 저장 기한 &ndash;&gt;
+            </rollingPolicy>
+            <encoder>
+                <Pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n
+                </Pattern> &lt;!&ndash; 해당 패턴 네이밍으로 현재 로그가 기록됨 &ndash;&gt;
+            </encoder>
+        </appender>-->
+
+    <!-- TRACE > DEBUG > INFO > WARN > ERROR > OFF-->
+    <!-- Root Logger -->
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <!--        <appender-ref ref="INFO_LOG"/>-->
+    </root>
+</configuration>
